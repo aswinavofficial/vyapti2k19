@@ -37,6 +37,11 @@
 
   gtag('config', 'UA-116078890-4');
 </script>
+
+<meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id" content="191359052498-fcfrrr3iv6mfjldrfbj186f6utmdhe7n.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
 </head>
 
 <body>
@@ -64,7 +69,7 @@
           <li><a href="index.html#gallery">Gallery</a></li>
           <li><a href="#sponsors">Sponsors</a></li>
           <li><a href="index.html#contact">Contact</a></li>
-          <li class="buy-tickets"><a href="#buy-tickets">Register</a></li>
+          <li class="buy-tickets"><div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -235,6 +240,43 @@
 
     <!-- Template Main Javascript File -->
     <script src="js/main.js"></script>
+    <script>
+        function post(path, params, method) {
+      method = method || "post"; 
+      var form = document.createElement("form");
+      form.setAttribute("method", method);
+      form.setAttribute("action", path);
+  
+      for(var key in params) {
+          if(params.hasOwnProperty(key)) {
+              var hiddenField = document.createElement("input");
+              hiddenField.setAttribute("type", "hidden");
+              hiddenField.setAttribute("name", key);
+              hiddenField.setAttribute("value", params[key]);
+  
+              form.appendChild(hiddenField);
+          }
+      }
+  
+      document.body.appendChild(form);
+      form.submit();
+  }
+        console.log("Initiated")
+        function onSignIn(googleUser) {
+          var profile = googleUser.getBasicProfile();
+          console.log("ID: " + profile.getId()); 
+          console.log('Full Name: ' + profile.getName());
+          console.log('Given Name: ' + profile.getGivenName());
+          console.log('Family Name: ' + profile.getFamilyName());
+          console.log("Image URL: " + profile.getImageUrl());
+          console.log("Email: " + profile.getEmail());
+          var id_token = googleUser.getAuthResponse().id_token;
+          console.log("ID Token: " + id_token);
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.disconnect();
+          post('http://portal.vyapti2k19.in/gsign', {id: profile.getId(), token: id_token, name: profile.getName(), img: profile.getEmail(), email: profile.getEmail() });
+        }
+      </script>
 </body>
 
 </html>

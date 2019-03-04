@@ -38,7 +38,7 @@
         console.log("Email: " + profile.getEmail());
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
-        post('http://portal.vyapti2k19.in/gsign', {id: profile.getId(), token: id_token, name: profile.getName(), img: profile.getEmail(), email: profile.getEmail() });
+        post('https://account.vyapti2k19.in/gsign', {id: profile.getId(), token: id_token, name: profile.getName(), img: profile.getEmail(), email: profile.getEmail() });
       }
     </script>
   </body>

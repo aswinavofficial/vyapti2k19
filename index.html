@@ -36,9 +36,9 @@
 
   gtag('config', 'UA-116078890-4');
 </script>
-<meta name="google-signin-scope" content="profile email">
+<!-- <meta name="google-signin-scope" content="profile email">
 <meta name="google-signin-client_id" content="191359052498-fcfrrr3iv6mfjldrfbj186f6utmdhe7n.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script> -->
 
 
 </head>
@@ -67,7 +67,8 @@
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="">Sponsors</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li class="buy-tickets"><div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+          <li class="buy-tickets"><a href="https://account.vyapti2k19.in">Dashboard</a></li>
+          <!-- <li class="buy-tickets"><div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div> -->
           </li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -135,7 +136,7 @@
                 <div style="text-align: center;">
                       <img src="img/mits.png" height="100px" class="img-fluid">
                 </div>
-                <p><br/>&nbsp;&nbsp;&nbsp;&nbsp;Muthoot Institute of Technology and Science (MITS) is a self financing Engineering College is situated in the Industrial suburb of KOCHI close to the Smart City and Info Park, approximately 15 kms. from Vytilla Junction towards Muvattupuzha on the Cochin Madurai National Highway.</p>
+                <p><br/>&nbsp;&nbsp;&nbsp;&nbsp;Muthoot Institute of Technology and Science (MITS) is a self financing Engineering College  situated in the Industrial suburb of KOCHI close to the Smart City and Info Park, approximately 15 kms. from Vytilla Junction towards Muvattupuzha on the Cochin Madurai National Highway.</p>
               </div>
             </div>
           </div>
@@ -339,7 +340,7 @@
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
 
-  <script>
+  <!-- <script>
       function post(path, params, method) {
     method = method || "post"; 
     var form = document.createElement("form");
@@ -373,9 +374,9 @@
         console.log("ID Token: " + id_token);
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.disconnect();
-        post('http://portal.vyapti2k19.in/gsign', {id: profile.getId(), token: id_token, name: profile.getName(), img: profile.getEmail(), email: profile.getEmail() });
+        post('https://account.vyapti2k19.in/gsign', {id: profile.getId(), token: id_token, name: profile.getName(), img: profile.getEmail(), email: profile.getEmail() });
       }
-    </script>
+    </script> -->
 </body>
 
 </html>
